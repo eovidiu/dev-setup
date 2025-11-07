@@ -1,6 +1,7 @@
 # Isolated Development Environment
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Docker Build](https://github.com/eovidiu/claude-sandbox/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/eovidiu/claude-sandbox/actions/workflows/publish-docker-image.yml)
 [![Shell Script](https://img.shields.io/badge/Shell-Bash-4EAA25?logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/)
 [![Docker](https://img.shields.io/badge/Docker-Required-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
 [![Tests](https://img.shields.io/badge/Tests-40%20passing-success)](tests/)

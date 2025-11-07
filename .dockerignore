@@ -1,26 +1,43 @@
-# Git
-.git/
+# Git files
+.git
+.github
 .gitignore
-
-# Environment files
-.env
-.env.*
+.gitmodules
 
 # Documentation
-README.md
+*.md
 docs/
 specs/
-.specify/
 
 # Tests
 tests/
+*.bats
 
-# macOS
-.DS_Store
+# Environment files (sensitive)
+.env
+.env.*
+!.env.template
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+tmp/
+temp/
 
 # IDE
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# Logs
-*.log
+# macOS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
