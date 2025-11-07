@@ -10,6 +10,13 @@
 
 FROM ubuntu:22.04
 
+# OCI labels for GitHub Container Registry
+LABEL org.opencontainers.image.source=https://github.com/eovidiu/claude-sandbox
+LABEL org.opencontainers.image.description="Isolated development environment for running Claude Code safely with pre-configured NodeJS and Python runtimes"
+LABEL org.opencontainers.image.licenses=MIT
+LABEL org.opencontainers.image.title="Claude Sandbox"
+LABEL org.opencontainers.image.vendor="Ovidiu Eftimie"
+
 # Avoid prompts from apt (required for non-interactive Docker builds)
 ENV DEBIAN_FRONTEND=noninteractive
 

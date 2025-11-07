@@ -34,6 +34,25 @@ This project provides scripts and configuration to spin up isolated containerize
 
 ## Quick Start
 
+### Option 1: Using Pre-built Docker Image (Fastest)
+
+Pull the pre-built image from GitHub Container Registry:
+
+```bash
+# Pull the latest image
+docker pull ghcr.io/eovidiu/claude-sandbox:latest
+
+# Or pull a specific version
+docker pull ghcr.io/eovidiu/claude-sandbox:v1.0.0
+
+# Run the container
+docker run -it --rm \
+  -v ~/work/ai:/workspace:rw \
+  ghcr.io/eovidiu/claude-sandbox:latest
+```
+
+### Option 2: Build from Source
+
 ### 1. Configure Your Environment
 
 ```bash
@@ -215,6 +234,72 @@ claude --dangerously-skip-permissions
 ```bash
 ./scripts/dev-env-shell.sh claude-dev --command "install-claude.sh --verify"
 ```
+
+## Docker Image
+
+### Pre-built Images
+
+Pre-built Docker images are available on GitHub Container Registry:
+
+```bash
+# Pull latest stable version
+docker pull ghcr.io/eovidiu/claude-sandbox:latest
+
+# Pull specific version
+docker pull ghcr.io/eovidiu/claude-sandbox:v1.0.0
+
+# View available tags
+# Visit: https://github.com/eovidiu/claude-sandbox/pkgs/container/claude-sandbox
+```
+
+### Direct Docker Usage
+
+You can use the image directly without the helper scripts:
+
+```bash
+# Interactive shell with mounted workspace
+docker run -it --rm \
+  -v ~/projects:/workspace:rw \
+  ghcr.io/eovidiu/claude-sandbox:latest
+
+# Run a specific command
+docker run --rm \
+  -v ~/projects:/workspace:rw \
+  ghcr.io/eovidiu/claude-sandbox:latest \
+  node --version
+
+# With environment variables (secrets)
+docker run -it --rm \
+  -v ~/projects:/workspace:rw \
+  -e API_KEY=your-secret-key \
+  -e DB_PASSWORD=your-password \
+  ghcr.io/eovidiu/claude-sandbox:latest
+
+# With port mappings
+docker run -it --rm \
+  -v ~/projects:/workspace:rw \
+  -p 3000:3000 \
+  -p 8000:8000 \
+  ghcr.io/eovidiu/claude-sandbox:latest
+```
+
+### Building Locally
+
+```bash
+# Build the image
+docker build -t claude-sandbox:local .
+
+# Run your local build
+docker run -it --rm -v ~/projects:/workspace:rw claude-sandbox:local
+```
+
+### Image Details
+
+- **Base Image**: Ubuntu 22.04 LTS
+- **Size**: ~800MB (optimized with layer caching)
+- **Runtimes**: NodeJS LTS (v20.x), Python 3.11+
+- **Package Managers**: npm, yarn, pip, virtualenv, pipenv
+- **Tools**: git, curl, wget, build-essential
 
 ## Scripts Reference
 
